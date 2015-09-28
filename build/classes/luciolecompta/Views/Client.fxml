@@ -120,7 +120,7 @@
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#handleNewClient" prefHeight="30.0" prefWidth="201.0" text="Nouveau" />
                                     <Button mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="30.0" prefWidth="185.0" text="Suppression" GridPane.columnIndex="2" />
-                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="132.0" text="Valider l'édition" GridPane.columnIndex="1" />
+                                    <Button mnemonicParsing="false" onAction="#handleUpdateClient" prefHeight="30.0" prefWidth="132.0" text="Valider l'édition" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
                            </children>

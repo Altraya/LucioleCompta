@@ -35,11 +35,7 @@ public class ClientManager {
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ClientManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-       
-       
-       
+        }    
     }
     
     /**
@@ -99,7 +95,7 @@ public class ClientManager {
     }
     
     public void addClient(Client client){
-    Statement stmt = null;
+        Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
             stmt = db.createStatement();
@@ -108,6 +104,23 @@ public class ClientManager {
             System.out.println("Dans add client");
             stmt.executeUpdate(sql);
             System.out.println("INSERT de client réussi !");
+            stmt.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+    }
+    
+    public void updateClient(Client client){
+        Statement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            stmt = db.createStatement();
+            String sql = "UPDATE CLIENT(id, nom, prenom, adresse1, adresse2, ville, NPA, telephone1, telephone2, email, entreprise, commentaire)"
+                    + "VALUES("+client.getId()+", '"+client.getNom()+"', '"+client.getPrenom()+"', '"+client.getAdresse1()+"', '"+client.getAdresse2()+"', '"+client.getVille()+"', '"+client.getNPA()+"', '"+client.getTelephone1()+"', '"+client.getTelephone2()+"', '"+client.getEmail()+"', '"+client.getEntreprise()+"', '"+client.getCommentaire()+"')";
+            System.out.println("Dans update client");
+            stmt.executeUpdate(sql);
+            System.out.println("UPDATE du client réussi !");
             stmt.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());

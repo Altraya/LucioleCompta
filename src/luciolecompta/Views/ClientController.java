@@ -182,6 +182,25 @@ public class ClientController {
         }
     }
 
+    @FXML
+    private void handleUpdateClient(){
+        System.out.println("Handle update client");
+        
+        //The DB action to add client
+        ClientManager cm = new ClientManager();
+        
+        //create new client with updated informations
+        Client client = new Client(Integer.getInteger(idField.getText()), nomField.getText(), prenomField.getText(), adresse1Field.getText(), adresse2Field.getText(), villeField.getText(), NPAField.getText(), telephone1Field.getText(), telephone2Field.getText(), emailField.getText(), entrepriseField.getText(), commentaireField.getText());
+        System.out.println("Updateuh");
+        System.out.println(client.toString());
+        //update client in database
+        cm.updateClient(client);
+        
+        //refresh the list / select all in DB
+        informationsClients.setItems(clientManager.getClientData());
+
+    }
+    
     /**
      * Called when the user clicks on the delete button.
      */
