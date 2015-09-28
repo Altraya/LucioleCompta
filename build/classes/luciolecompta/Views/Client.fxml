@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="luciolecompta.Views.ClientController">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" layoutX="-7.0" layoutY="-7.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="257.0">
+               <children>
+                  <TableView id="informationsClients" fx:id="informationsClients" layoutX="-31.0" layoutY="45.0" prefHeight="553.0" prefWidth="294.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+                    <columns>
+                      <TableColumn id="nomClient" fx:id="nomClientColumn" prefWidth="146.0" text="Nom" />
+                      <TableColumn id="prenomClient" fx:id="prenomClientColumn" prefWidth="147.0" text="Prénom" />
+                        <TableColumn id="entrepriseClient" fx:id="entrepriseClientColumn" prefWidth="147.0" text="Entreprise" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <GridPane layoutX="6.0" prefHeight="45.0" prefWidth="294.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="7.0" prefWidth="8.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="183.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="11.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="84.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="65.0" minWidth="10.0" prefWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField prefHeight="25.0" prefWidth="164.0" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="84.0" text="Rechercher" GridPane.columnIndex="3" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="351.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label text="Détails du client :" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <GridPane prefHeight="274.0" prefWidth="686.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label fx:id="nom" prefHeight="29.0" prefWidth="344.0" text="Nom" GridPane.rowIndex="1" />
+                                    <Label fx:id="prenom" text="Prenom" GridPane.rowIndex="2" />
+                                    <Label fx:id="adresse1" text="Adresse 1 " GridPane.rowIndex="4" />
+                                    <Label fx:id="adresse2" text="Adresse 2" GridPane.rowIndex="5" />
+                                    <Label fx:id="codePostal" text="Code postal" GridPane.rowIndex="6" />
+                                    <Label fx:id="telephone1" text="Téléphone 1" GridPane.rowIndex="8" />
+                                    <Label fx:id="id" text="Id" />
+                                    <Label fx:id="telephone2" text="Téléphone 2" GridPane.rowIndex="9" />
+                                    <Label fx:id="email" text="Email" GridPane.rowIndex="10" />
+                                    <Label fx:id="commentaire" text="Commentaire" GridPane.rowIndex="11" />
+                                    <Label text="Ville" GridPane.rowIndex="7" />
+                                    <Label text="Entreprise" GridPane.rowIndex="3" />
+                                    <TextField fx:id="idField" GridPane.columnIndex="1" />
+                                    <TextField fx:id="nomField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="prenomField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="entrepriseField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="adresse1Field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField fx:id="adresse2Field" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField fx:id="NPAField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <TextField fx:id="villeField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <TextField fx:id="telephone1Field" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                    <TextField fx:id="telephone2Field" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                    <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                    <TextField fx:id="commentaireField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="ID" />
+                                  <TableColumn prefWidth="75.0" text="Nom" />
+                                    <TableColumn prefWidth="75.0" text="Date" />
+                                    <TableColumn prefWidth="75.0" text="Type" />
+                                    <TableColumn prefWidth="75.0" text="Total" />
+                                    <TableColumn prefWidth="75.0" text="Payé ?" />
+                                </columns>
+                              </TableView>
+                              <GridPane prefHeight="30.0" prefWidth="301.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleNewClient" prefHeight="30.0" prefWidth="201.0" text="Nouveau" />
+                                    <Button mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="30.0" prefWidth="185.0" text="Suppression" GridPane.columnIndex="2" />
+                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="132.0" text="Valider l'édition" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
