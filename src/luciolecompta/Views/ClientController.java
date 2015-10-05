@@ -5,19 +5,16 @@
  */
 package luciolecompta.Views;
 
-import java.util.ArrayList;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import luciolecompta.MainApp;
 import luciolecompta.MainApp;
 import luciolecompta.Models.Client;
 import luciolecompta.Models.ClientManager;
@@ -189,8 +186,14 @@ public class ClientController {
         //The DB action to add client
         ClientManager cm = new ClientManager();
         
+        System.out.println("Id field : " + idField.getText());
+        System.out.println("Id field text : "+idField.getText());
+        int id = Integer.parseInt(idField.getText());
+        System.out.println("id : "+id);
+        System.out.println("Nom field : " + nomField.getText());
+        
         //create new client with updated informations
-        Client client = new Client(Integer.getInteger(idField.getText()), nomField.getText(), prenomField.getText(), adresse1Field.getText(), adresse2Field.getText(), villeField.getText(), NPAField.getText(), telephone1Field.getText(), telephone2Field.getText(), emailField.getText(), entrepriseField.getText(), commentaireField.getText());
+        Client client = new Client(id, nomField.getText(), prenomField.getText(), adresse1Field.getText(), adresse2Field.getText(), villeField.getText(), NPAField.getText(), telephone1Field.getText(), telephone2Field.getText(), emailField.getText(), entrepriseField.getText(), commentaireField.getText());
         System.out.println("Updateuh");
         System.out.println(client.toString());
         //update client in database

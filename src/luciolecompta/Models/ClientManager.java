@@ -51,12 +51,12 @@ public class ClientManager {
             
             System.out.println("Selection des clients en base de données.");
             ResultSet rs = stmt.executeQuery("SELECT id, nom, prenom, adresse1, adresse2, ville, NPA, telephone1, telephone2, email, commentaire, entreprise FROM CLIENT");
-            System.out.println("Ok.");
             while (rs.next()) {
                 Client client = new Client(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("adresse1"), rs.getString("adresse2"), rs.getString("ville"), rs.getString("NPA"), rs.getString("telephone1"), rs.getString("telephone2"), rs.getString("email"), rs.getString("entreprise"), rs.getString("commentaire"));
                 //System.out.println("Dans getClientdata de clientManager | id =" + rs.getInt("id")+ " nom = " + rs.getString("nom") + " Entreprise " +rs.getString("entreprise")+ " Adresse 1 " + rs.getString("adresse1") + "\n");
                 clientData.add(client);
             }
+            System.out.println("Ok.");
             stmt.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -111,20 +111,31 @@ public class ClientManager {
         }
     }
     
-    public void updateClient(Client client){
+    public void updateClient(Client c){
         Statement stmt = null;
         try {
+            System.out.println("Dans update client");
             Class.forName("org.sqlite.JDBC");
             stmt = db.createStatement();
-            String sql = "UPDATE CLIENT(id, nom, prenom, adresse1, adresse2, ville, NPA, telephone1, telephone2, email, entreprise, commentaire)"
-                    + "VALUES("+client.getId()+", '"+client.getNom()+"', '"+client.getPrenom()+"', '"+client.getAdresse1()+"', '"+client.getAdresse2()+"', '"+client.getVille()+"', '"+client.getNPA()+"', '"+client.getTelephone1()+"', '"+client.getTelephone2()+"', '"+client.getEmail()+"', '"+client.getEntreprise()+"', '"+client.getCommentaire()+"')";
-            System.out.println("Dans update client");
+            String sql = "UPDATE CLIENT "
+                    + "SET nom = '"+c.getNom()+"', "
+                    + "prenom = '"+c.getPrenom()+"', "
+                    + "adresse1 = '"+c.getAdresse1()+"', "
+                    + "adresse2 = '"+c.getAdresse2()+"', "
+                    + "ville = '"+c.getVille()+"', "
+                    + "NPA = '"+c.getNPA()+"', "
+                    + "telephone1 = '"+c.getTelephone1()+"', "
+                    + "telephone2 = '"+c.getTelephone2()+"', "
+                    + " email = '"+c.getEmail()+"', "
+                    + "entreprise = '"+c.getEntreprise()+"', "
+                    + "commentaire = '"+c.getCommentaire()+"' "
+                    + "WHERE id = "+c.getId()+";";
+            System.out.println("SQL : "+sql);
             stmt.executeUpdate(sql);
             System.out.println("UPDATE du client réussi !");
             stmt.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
         }
     }
     
