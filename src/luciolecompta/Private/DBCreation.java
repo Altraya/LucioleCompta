@@ -53,7 +53,7 @@ public class DBCreation {
                     + "paye             INTEGER DEFAULT 0," //Flag pour savoir si ca a été payé ou non => false defaut
                     + "confirme         INTEGER DEFAULT 0," //Flag pour savoir si ca a été confirme ou non => false defaut
                     + "sujet            TEXT," // null defaut
-                    + "dateExcution     DATE," //date de l'execution du contrat / null
+                    + "dateExecution     DATE," //date de l'execution du contrat / null
                     + "datePaiement     DATE," //date du paiement /null
                     + "rabaisTotal      INTEGER DEFAULT 0," //pourcentage de rabais au total defaut 0
                     + "typeDevis        TEXT NOT NULL," //type de devis (location, prestation ou vente) 
@@ -134,6 +134,28 @@ public class DBCreation {
                     + "(4, 'Monk', 'Crapouille', 'Blizzard enternment')";
             stmt.executeUpdate(sql);
             System.out.println("INSERT de client réussi !");
+            stmt.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+    }
+    
+    /**
+     * Populate the database with test data
+     * @param c : DB connection
+     */
+    public static void populateFacture(Connection c) {
+        Statement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            stmt = c.createStatement();
+            String sql = "INSERT INTO FACTURE(id, type, dateDevis, paye, confirme, sujet, dateExecution, "
+                    + "datePaiement, rabaisTotal, typeDevis, TVA, typePaiement, dureePaiement, dureeLocation, commentaire)"
+                    + "VALUES(null, 'facture', '2015-10-31', 0, 0, 'Concert sur montagne', '2015-12-31', null, 0, 'location', 8, 'liquide', 'en avance', '2 jours', 'ceci est un commentaire'),"
+                    + "(null, 'facture', '2012-10-02', 0, 0, 'Concert quelque part', '2015-12-22', '2014-12-10', 0, 'location', 8, 'liquide', 'en avance', '15 jours', 'ceci est un commentaire')";
+            stmt.executeUpdate(sql);
+            System.out.println("INSERT de Facture réussi !");
             stmt.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());

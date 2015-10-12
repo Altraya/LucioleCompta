@@ -130,7 +130,6 @@ public class ClientManager {
                     + "entreprise = '"+c.getEntreprise()+"', "
                     + "commentaire = '"+c.getCommentaire()+"' "
                     + "WHERE id = "+c.getId()+";";
-            System.out.println("SQL : "+sql);
             stmt.executeUpdate(sql);
             System.out.println("UPDATE du client réussi !");
             stmt.close();
