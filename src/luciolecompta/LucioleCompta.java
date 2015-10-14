@@ -15,9 +15,9 @@ import luciolecompta.Private.DBCreation;
 public class LucioleCompta {
 
     /**
-     * @TODO : A faire : Créer un nouveau constructeur pour faire un select pour remplir le tableView des factures. 
+     * @TODO : A faire : Finir de faire la classe facture et finir la partie facture des clients 
      * Plus tard : Pas oublier de faire une syncro sans avoir besoin de valider l'édition => timer
-     * Maybe changer le nom de mes controllers pour qu'un controller soit associé à une fenêtre et pas a une table spécifique ? Maybe more easy ?
+     * Au final > un controller = une page
      * @param args the command line arguments
      */
     public static void main(String[] args) {

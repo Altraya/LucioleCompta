@@ -5,6 +5,7 @@
  */
 package luciolecompta.Views;
 
+import java.time.LocalDate;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
@@ -25,7 +26,7 @@ import luciolecompta.Models.ClientManager;
  *
  * @author Karakayn
  */
-public class ClientController {
+public class ClientControllerPage {
 
     /**
      * List property who contain all value of Client property except id
@@ -43,7 +44,20 @@ public class ClientController {
     private TableColumn<Client, String> prenomClientColumn;
     @FXML
     private TableColumn<Client, String> entrepriseClientColumn;
+    @FXML
+    private TableView<Facture> factureInfosClients;
+    @FXML
+    private TableColumn<Facture, Integer> idFactureClientColumn;
+    @FXML
+    private TableColumn<Facture, String> nomFactureClientColumn;
+    @FXML
+    private TableColumn<Facture, LocalDate> dateFactureClientColumn;
+    @FXML
+    private TableColumn<Facture, String> typeFactureClientColumn;
+    @FXML
+    private TableColumn<Facture, String> totalFactureClientColumn;
 
+    
     /**
      * All field on the right of the interface
      */
@@ -81,7 +95,7 @@ public class ClientController {
      * The constructor. The constructor is called before the initialize()
      * method.
      */
-    public ClientController() {
+    public ClientControllerPage() {
     }
 
     /**

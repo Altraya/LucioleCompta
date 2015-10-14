@@ -6,7 +6,7 @@
 package luciolecompta;
 
 import luciolecompta.Views.AddClientController;
-import luciolecompta.Views.ClientController;
+import luciolecompta.Views.ClientControllerPage;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -94,7 +94,7 @@ public class MainApp extends Application {
             rootLayout.setCenter(clientOverview);
 
             // Give the controller access to the main app.
-            ClientController controller = loader.getController();
+            ClientControllerPage controller = loader.getController();
 
             //Manager to get client data
             ClientManager clientManager = new ClientManager();
