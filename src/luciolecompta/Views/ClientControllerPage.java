@@ -19,10 +19,12 @@ import javafx.scene.control.TextField;
 import luciolecompta.MainApp;
 import luciolecompta.Models.Client;
 import luciolecompta.Models.ClientManager;
+import luciolecompta.Models.Facture;
 
 /**
  * JavaFX nous oblige à mettre les controllers dans le même package que les
  * views en fxml
+ * Controller of the client page / with one part with client's facture
  *
  * @author Karakayn
  */
@@ -44,6 +46,7 @@ public class ClientControllerPage {
     private TableColumn<Client, String> prenomClientColumn;
     @FXML
     private TableColumn<Client, String> entrepriseClientColumn;
+
     @FXML
     private TableView<Facture> factureInfosClients;
     @FXML
@@ -56,7 +59,8 @@ public class ClientControllerPage {
     private TableColumn<Facture, String> typeFactureClientColumn;
     @FXML
     private TableColumn<Facture, String> totalFactureClientColumn;
-
+    @FXML
+    private TableColumn<Facture, Integer> payeClientColumn;
     
     /**
      * All field on the right of the interface
@@ -115,7 +119,16 @@ public class ClientControllerPage {
         // Listen for selection changes and show the person details when changed.
         informationsClients.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showClientsDetails(newValue));
-        
+        informationsClients.getSelectionModel().selectedItemProperty().addListener(
+        (observ, old, newVal) -> showClientFacture(newVal));
+    }
+    
+    /**
+     * Get all the bill of the person and display it on the view table
+     * @param client : the owner of the facture 
+     */
+    public void showClientFacture(Client client){
+        //nothing now @TODO
     }
 
     /**

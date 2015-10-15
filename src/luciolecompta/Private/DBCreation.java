@@ -6,7 +6,6 @@
 package luciolecompta.Private;
 
 import java.sql.*;
-import luciolecompta.Models.Client;
 
 /**
  * Script permettant de créer les tables de la base de données.
@@ -53,7 +52,7 @@ public class DBCreation {
                     + "paye             INTEGER DEFAULT 0," //Flag pour savoir si ca a été payé ou non => false defaut
                     + "confirme         INTEGER DEFAULT 0," //Flag pour savoir si ca a été confirme ou non => false defaut
                     + "sujet            TEXT," // null defaut
-                    + "dateExecution     DATE," //date de l'execution du contrat / null
+                    + "dateExecution    DATE," //date de l'execution du contrat / null
                     + "datePaiement     DATE," //date du paiement /null
                     + "rabaisTotal      INTEGER DEFAULT 0," //pourcentage de rabais au total defaut 0
                     + "typeDevis        TEXT NOT NULL," //type de devis (location, prestation ou vente) 

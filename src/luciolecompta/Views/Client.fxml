@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="luciolecompta.Views.ClientController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="luciolecompta.Views.ClientControllerPage">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" layoutX="-7.0" layoutY="-7.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -98,14 +98,14 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <TableView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="factureInfosClients" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="ID" />
-                                  <TableColumn prefWidth="75.0" text="Nom" />
-                                    <TableColumn prefWidth="75.0" text="Date" />
-                                    <TableColumn prefWidth="75.0" text="Type" />
-                                    <TableColumn prefWidth="75.0" text="Total" />
-                                    <TableColumn prefWidth="75.0" text="Payé ?" />
+                                  <TableColumn fx:id="idFactureClientColumn" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="nomFactureClientColumn" prefWidth="75.0" text="Nom" />
+                                    <TableColumn fx:id="dateFactureClientColumn" prefWidth="75.0" text="Date" />
+                                    <TableColumn fx:id="typeFactureClientColumn" prefWidth="75.0" text="Type" />
+                                    <TableColumn fx:id="totalFactureClientColumn" prefWidth="75.0" text="Total" />
+                                    <TableColumn fx:id="payeClientColumn" prefWidth="75.0" text="Payé ?" />
                                 </columns>
                               </TableView>
                               <GridPane prefHeight="30.0" prefWidth="301.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">

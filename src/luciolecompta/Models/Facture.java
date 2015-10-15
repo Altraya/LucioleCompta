@@ -5,39 +5,71 @@
  */
 package luciolecompta.Models;
 
+import java.time.LocalDate;
+import java.util.Date;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  *
  * @author Karakayn
  */
 public class Facture {
 
-    private int id;
+    private final IntegerProperty id;
     //offre ou facture ou bon livraison
-    private String type;
+    private final StringProperty type;
     //date du devis
-    private Date dateDevis;
+    private final ObjectProperty<LocalDate> dateDevis;
     //Flag pour savoir si ca a été payé ou non => false defaut
-    private int paye;
+    private final IntegerProperty paye;
     //Flag pour savoir si ca a été confirme ou non => false defaut
-    private int confirme;
+    private final IntegerProperty confirme;
     //Sujet de la facture : Defaut a null
-    private String sujet;
+    private final StringProperty sujet;
     //date de l'execution du contrat / null
-    private Date dateExecution;
+    private final ObjectProperty<LocalDate> dateExecution;
     //date du paiement /null
-    private Date datePaiement;
+    private final ObjectProperty<LocalDate> datePaiement;
     //pourcentage de rabais au total defaut 0
-    private int rabaisTotal;
+    private final IntegerProperty rabaisTotal;
     //type de devis (location, prestation ou vente) 
-    private String typeDevis;
+    private final StringProperty typeDevis;
     //TVA : 8% par defaut
-    private int TVA;
+    private final IntegerProperty TVA;
     //type de paiement (liquide, facture, carte) defaut liquide
-    private String typePaiement;
+    private final StringProperty typePaiement;
     //durée du paiement (à la prise du matériel, 30 jours, 10 jours, au retour) defaut paiement d'avance
-    private String dureePaiement;
+    private final StringProperty dureePaiement;
     //durée de la location
-    private String dureeLocation;
-    private String commentaire;
+    private final StringProperty dureeLocation;
+    //commentaire potentiel / null
+    private final StringProperty commentaire;
+    
+    public Facture(int id, String type, Date dateDevis, int paye, int confirme, 
+            String sujet, Date dateExecution, Date datePaiement, int rabaisTotal, String typeDevis, 
+            int TVA, String typePaiement, String dureePaiement, String dureeLocation, String commentaire){
+        
+        this.id = new SimpleIntegerProperty(id);
+        this.type = new SimpleStringProperty(type);
+        this.dateDevis = new SimpleObjectProperty<LocalDate>(LocalDate.parse(dateDevis.toString()));
+        this.paye = new SimpleIntegerProperty(paye);
+        this.confirme = new SimpleIntegerProperty(confirme);
+        this.sujet = new SimpleStringProperty(sujet);
+        this.dateExecution = new SimpleObjectProperty<LocalDate>(LocalDate.parse(dateExecution.toString())/*of(dateExecution)*/);
+        this.datePaiement = new SimpleObjectProperty<LocalDate>(LocalDate.parse(datePaiement.toString()));
+        this.rabaisTotal = new SimpleIntegerProperty(rabaisTotal);
+        this.typeDevis = new SimpleStringProperty(typeDevis);
+        this.TVA = new SimpleIntegerProperty(TVA);
+        this.typePaiement = new SimpleStringProperty(typePaiement);
+        this.dureePaiement = new SimpleStringProperty(dureePaiement);
+        this.dureeLocation = new SimpleStringProperty(dureeLocation);
+        this.commentaire = new SimpleStringProperty(commentaire);
+    }
+    
     
 }
