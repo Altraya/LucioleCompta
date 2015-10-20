@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import luciolecompta.DateUtil;
 
 /**
  * Manager des factures
@@ -54,27 +55,12 @@ public class FactureManager {
             System.out.println("Selection des factures du client n°"+client.getId()+" en base de données.");
             ResultSet rs = stmt.executeQuery("SELECT id, sujet, dateDevis, type, prixTotal, dateExecution, datePaiement FROM FACTURE");
             while (rs.next()) {
-                Date tmpDateDevis = null;
-                Date tmpDateExecution = null;
-                Date tmpDatePaiement = null;
-                
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                if(rs.getString("dateDevis") != null){
-                    String strTmpDateDevis = (rs.getString("dateDevis"));
-                    tmpDateDevis = sdf.parse(strTmpDateDevis);
-                    System.out.println("TmpDateDevis : "+tmpDateDevis);
-                }
-                if(rs.getString("dateExecution") != null){
-                    String strTmpDateExecution = (rs.getString("dateExecution"));
-                    tmpDateExecution = sdf.parse(strTmpDateExecution);
-                    System.out.println("tmpDateExecution : "+tmpDateExecution);
-                }
-                if(rs.getString("datePaiement") != null){
-                    String strTmpdatePaiement = (rs.getString("datePaiement"));
-                    tmpDatePaiement = sdf.parse(strTmpdatePaiement);
-                    System.out.println("tmpDatePaeiment : "+tmpDatePaiement);
-                }
-                Facture fac = new Facture(rs.getInt("id"), rs.getString("sujet"), tmpDateDevis, rs.getString("type"), rs.getInt("prixTotal"), tmpDateExecution, tmpDatePaiement);
+
+                Date dateDevis = DateUtil.parseDate(rs.getString("dateDevis"));
+                Date dateExecution = DateUtil.parseDate(rs.getString("dateExecution"));           
+                Date datePaiement = DateUtil.parseDate(rs.getString("datePaiement"));
+
+                Facture fac = new Facture(rs.getInt("id"), rs.getString("sujet"), dateDevis, rs.getString("type"), rs.getInt("prixTotal"), dateExecution, datePaiement);
                 //System.out.println("Dans getClientdata de clientManager | id =" + rs.getInt("id")+ " nom = " + rs.getString("nom") + " Entreprise " +rs.getString("entreprise")+ " Adresse 1 " + rs.getString("adresse1") + "\n");
                 bill.add(fac);
             }
