@@ -55,10 +55,13 @@ public class FactureManager {
             System.out.println("Selection des factures du client n°"+client.getId()+" en base de données.");
             ResultSet rs = stmt.executeQuery("SELECT id, sujet, dateDevis, type, prixTotal, dateExecution, datePaiement FROM FACTURE");
             while (rs.next()) {
-
-                Date dateDevis = DateUtil.parseDate(rs.getString("dateDevis"));
-                Date dateExecution = DateUtil.parseDate(rs.getString("dateExecution"));           
-                Date datePaiement = DateUtil.parseDate(rs.getString("datePaiement"));
+                //Need to do this weird think because i cant use rs.getDate() cause it return a timestamp and i can't change this or i always have error / see branch test2
+                Date dateDevis = DateUtil.getDate(rs.getObject("dateDevis"));
+                Date dateExecution = DateUtil.getDate(rs.getObject("dateExecution"));
+                Date datePaiement = DateUtil.getDate(rs.getObject("datePaiement"));
+                System.out.println("Rs : id : "+rs.getObject("id")+ "\n");
+                System.out.println("sujet : "+rs.getObject("sujet"));
+                System.out.println("dateDevis :"+rs.getObject("dateDevis"));
 
                 Facture fac = new Facture(rs.getInt("id"), rs.getString("sujet"), dateDevis, rs.getString("type"), rs.getInt("prixTotal"), dateExecution, datePaiement);
                 //System.out.println("Dans getClientdata de clientManager | id =" + rs.getInt("id")+ " nom = " + rs.getString("nom") + " Entreprise " +rs.getString("entreprise")+ " Adresse 1 " + rs.getString("adresse1") + "\n");
@@ -68,6 +71,7 @@ public class FactureManager {
             stmt.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.out.println("Exeception dans facture manager");
             System.exit(0);
         }
         return bill;

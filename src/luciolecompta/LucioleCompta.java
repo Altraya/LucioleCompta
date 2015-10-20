@@ -23,7 +23,7 @@ public class LucioleCompta {
     public static void main(String[] args) {
         Connection c = null;
         try {
-            /*Class.forName("org.sqlite.JDBC");
+            Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:luciolecompta.db");
             //Creation de la DB
             DBCreation creationManager = new DBCreation();
@@ -34,7 +34,7 @@ public class LucioleCompta {
             creationManager.populate(c);
             creationManager.populateFacture(c);
             //creationManager.showTableSQL(c, "CLIENT");
-            c.close();*/
+            c.close();
             
             //affichage de la page d'accueil
             MainApp mainPage = new MainApp();

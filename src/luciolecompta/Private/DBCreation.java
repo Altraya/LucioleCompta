@@ -152,7 +152,7 @@ public class DBCreation {
             stmt = c.createStatement();
             String sql = "INSERT INTO FACTURE(id, type, dateDevis, paye, confirme, sujet, dateExecution, "
                     + "datePaiement, rabaisTotal, typeDevis, TVA, typePaiement, dureePaiement, dureeLocation, commentaire)"
-                    + "VALUES(null, 'facture', '2015-10-31', 0, 0, 'Concert sur montagne', '2015-12-31', null, 0, 'location', 8, 'liquide', 'en avance', '2 jours', 'ceci est un commentaire'),"
+                    + "VALUES(null, 'facture', '2015-01-22', 0, 0, 'Concert sur montagne', '2015-12-31', null, 0, 'location', 8, 'liquide', 'en avance', '2 jours', 'ceci est un commentaire'),"
                     + "(null, 'facture', '2012-10-02', 0, 0, 'Concert quelque part', '2015-12-22', '2014-12-10', 0, 'location', 8, 'liquide', 'en avance', '15 jours', 'ceci est un commentaire')";
             stmt.executeUpdate(sql);
             System.out.println("INSERT de Facture réussi !");
