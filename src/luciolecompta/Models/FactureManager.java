@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -53,12 +54,29 @@ public class FactureManager {
             System.out.println("Selection des factures du client n°"+client.getId()+" en base de données.");
             ResultSet rs = stmt.executeQuery("SELECT id, sujet, dateDevis, type, prixTotal, dateExecution, datePaiement FROM FACTURE");
             while (rs.next()) {
-                Date tmpDateDevis = new Date(rs.getString("dateDevis"));
-                System.out.println("String : "+rs.getString("dateDevis"));
-                System.out.println("Rs : "+rs.getDate("dateDevis")+"\n");
-                /*Facture fac = new Facture(rs.getInt("id"), rs.getString("sujet"), rs.getDate("dateDevis"), rs.getString("type"), rs.getInt("total"), rs.getDate("dateExecution"), rs.getDate("datePaiement"));
+                Date tmpDateDevis = null;
+                Date tmpDateExecution = null;
+                Date tmpDatePaiement = null;
+                
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                if(rs.getString("dateDevis") != null){
+                    String strTmpDateDevis = (rs.getString("dateDevis"));
+                    tmpDateDevis = sdf.parse(strTmpDateDevis);
+                    System.out.println("TmpDateDevis : "+tmpDateDevis);
+                }
+                if(rs.getString("dateExecution") != null){
+                    String strTmpDateExecution = (rs.getString("dateExecution"));
+                    tmpDateExecution = sdf.parse(strTmpDateExecution);
+                    System.out.println("tmpDateExecution : "+tmpDateExecution);
+                }
+                if(rs.getString("datePaiement") != null){
+                    String strTmpdatePaiement = (rs.getString("datePaiement"));
+                    tmpDatePaiement = sdf.parse(strTmpdatePaiement);
+                    System.out.println("tmpDatePaeiment : "+tmpDatePaiement);
+                }
+                Facture fac = new Facture(rs.getInt("id"), rs.getString("sujet"), tmpDateDevis, rs.getString("type"), rs.getInt("prixTotal"), tmpDateExecution, tmpDatePaiement);
                 //System.out.println("Dans getClientdata de clientManager | id =" + rs.getInt("id")+ " nom = " + rs.getString("nom") + " Entreprise " +rs.getString("entreprise")+ " Adresse 1 " + rs.getString("adresse1") + "\n");
-                bill.add(fac);*/
+                bill.add(fac);
             }
             System.out.println("Ok.");
             stmt.close();
