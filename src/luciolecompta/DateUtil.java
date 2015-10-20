@@ -20,7 +20,7 @@ import java.util.Date;
  */
 public class DateUtil {
 
-    public static DateFormat OUT_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+    public static DateFormat OUT_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
     /** The date pattern that is used for conversion. Change as you wish. */
     private static final String DATE_PATTERN = "yyyy-MM-dd";
 
