@@ -15,7 +15,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- *
+ * A bill object
  * @author Karakayn
  */
 public class Facture {
@@ -49,19 +49,22 @@ public class Facture {
     private final StringProperty dureeLocation;
     //commentaire potentiel / null
     private final StringProperty commentaire;
+    //prix total des articles raccordés a la facture /null si pas encore renseigné
+    private final IntegerProperty prixTotal;
     
     public Facture(int id, String type, Date dateDevis, int paye, int confirme, 
             String sujet, Date dateExecution, Date datePaiement, int rabaisTotal, String typeDevis, 
-            int TVA, String typePaiement, String dureePaiement, String dureeLocation, String commentaire){
-        
+            int TVA, String typePaiement, String dureePaiement, String dureeLocation, String commentaire,
+            int prixTotal){
+        System.out.println("Date devis : "+dateDevis);
         this.id = new SimpleIntegerProperty(id);
         this.type = new SimpleStringProperty(type);
-        this.dateDevis = new SimpleObjectProperty<LocalDate>(LocalDate.parse(dateDevis.toString()));
+        this.dateDevis = new SimpleObjectProperty<>(LocalDate.parse(dateDevis.toString()));
         this.paye = new SimpleIntegerProperty(paye);
         this.confirme = new SimpleIntegerProperty(confirme);
         this.sujet = new SimpleStringProperty(sujet);
-        this.dateExecution = new SimpleObjectProperty<LocalDate>(LocalDate.parse(dateExecution.toString())/*of(dateExecution)*/);
-        this.datePaiement = new SimpleObjectProperty<LocalDate>(LocalDate.parse(datePaiement.toString()));
+        this.dateExecution = new SimpleObjectProperty<>(LocalDate.parse(dateExecution.toString())/*of(dateExecution)*/);
+        this.datePaiement = new SimpleObjectProperty<>(LocalDate.parse(datePaiement.toString()));
         this.rabaisTotal = new SimpleIntegerProperty(rabaisTotal);
         this.typeDevis = new SimpleStringProperty(typeDevis);
         this.TVA = new SimpleIntegerProperty(TVA);
@@ -69,7 +72,29 @@ public class Facture {
         this.dureePaiement = new SimpleStringProperty(dureePaiement);
         this.dureeLocation = new SimpleStringProperty(dureeLocation);
         this.commentaire = new SimpleStringProperty(commentaire);
+        this.prixTotal = new SimpleIntegerProperty(prixTotal);
     }
     
+    //Sert pour crée une facture qui sert dans la vue des clients pour voir les factures associées au client
+    public Facture(int id, String nom, Date dateDevis, String type, int total, Date dateExecution, Date datePaiement){
+        this.id = new SimpleIntegerProperty(id);
+        this.sujet = new SimpleStringProperty(nom);
+        this.dateDevis = new SimpleObjectProperty<>(LocalDate.parse(dateDevis.toString()));
+        this.type = new SimpleStringProperty(type);
+        this.prixTotal = new SimpleIntegerProperty(total);
+        this.dateExecution = new SimpleObjectProperty<>(LocalDate.parse(dateExecution.toString())/*of(dateExecution)*/);
+        this.datePaiement = new SimpleObjectProperty<>(LocalDate.parse(datePaiement.toString()));
+    
+        this.paye = null;
+        this.confirme = null;
+        this.rabaisTotal = null;
+        this.typeDevis = null;
+        this.TVA = new SimpleIntegerProperty(8);
+        this.typePaiement = null;
+        this.dureePaiement = null;
+        this.dureeLocation = null;
+        this.commentaire = null;
+    }
+
     
 }

@@ -20,6 +20,7 @@ import luciolecompta.MainApp;
 import luciolecompta.Models.Client;
 import luciolecompta.Models.ClientManager;
 import luciolecompta.Models.Facture;
+import luciolecompta.Models.FactureManager;
 
 /**
  * JavaFX nous oblige à mettre les controllers dans le même package que les
@@ -54,13 +55,15 @@ public class ClientControllerPage {
     @FXML
     private TableColumn<Facture, String> nomFactureClientColumn;
     @FXML
-    private TableColumn<Facture, LocalDate> dateFactureClientColumn;
+    private TableColumn<Facture, LocalDate> dateDevisFactureClientColumn;
     @FXML
     private TableColumn<Facture, String> typeFactureClientColumn;
     @FXML
     private TableColumn<Facture, String> totalFactureClientColumn;
     @FXML
-    private TableColumn<Facture, Integer> payeClientColumn;
+    private TableColumn<Facture, LocalDate> dateExecutionFactureClientColumn;
+    @FXML
+    private TableColumn<Facture, LocalDate> datePaiementFactureClientColumn;
     
     /**
      * All field on the right of the interface
@@ -119,6 +122,7 @@ public class ClientControllerPage {
         // Listen for selection changes and show the person details when changed.
         informationsClients.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showClientsDetails(newValue));
+        //listen for selection change and show the client's bill details when changed
         informationsClients.getSelectionModel().selectedItemProperty().addListener(
         (observ, old, newVal) -> showClientFacture(newVal));
     }
@@ -128,7 +132,10 @@ public class ClientControllerPage {
      * @param client : the owner of the facture 
      */
     public void showClientFacture(Client client){
-        //nothing now @TODO
+        //Manager to get bill data on client page
+        FactureManager factureManager = new FactureManager();
+        
+        factureInfosClients.setItems(factureManager.getClientFactures(client));
     }
 
     /**
@@ -190,7 +197,6 @@ public class ClientControllerPage {
         test = clientManager.getClientData();
         //System.out.println("Dans Set main app : test = "+test);
         informationsClients.setItems(clientManager.getClientData());
-
     }
 
     /**

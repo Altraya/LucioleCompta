@@ -3,16 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Views/AddClientController.java</file>
             <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Private/DBCreation.java</file>
-            <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Models/Client.java</file>
-            <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Models/ClientManager.java</file>
             <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/MainApp.java</file>
+            <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Models/ClientManager.java</file>
             <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/LucioleCompta.java</file>
             <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Models/Facture.java</file>
             <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Views/ClientControllerPage.java</file>
-            <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Views/AddClient.fxml</file>
-            <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Private/ExoPOO.java</file>
+            <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Models/FactureManager.java</file>
+            <file>file:/C:/Users/Fifi/Documents/NetBeansProjects/LucioleCompta/src/luciolecompta/Views/Client.fxml</file>
         </group>
     </open-files>
 </project-private>

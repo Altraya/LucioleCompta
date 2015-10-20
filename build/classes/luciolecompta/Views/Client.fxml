@@ -102,10 +102,11 @@
                                 <columns>
                                   <TableColumn fx:id="idFactureClientColumn" prefWidth="75.0" text="ID" />
                                   <TableColumn fx:id="nomFactureClientColumn" prefWidth="75.0" text="Nom" />
-                                    <TableColumn fx:id="dateFactureClientColumn" prefWidth="75.0" text="Date" />
+                                    <TableColumn fx:id="dateDevisFactureClientColumn" prefWidth="75.0" text="Date devis" />
                                     <TableColumn fx:id="typeFactureClientColumn" prefWidth="75.0" text="Type" />
                                     <TableColumn fx:id="totalFactureClientColumn" prefWidth="75.0" text="Total" />
-                                    <TableColumn fx:id="payeClientColumn" prefWidth="75.0" text="Payé ?" />
+                                    <TableColumn fx:id="dateExecutionFactureClientColumn" prefWidth="106.0" text="Date d'execution" />
+                                    <TableColumn fx:id="datePaiementFactureClientColumn" prefWidth="124.0" text="Date de paiement" />
                                 </columns>
                               </TableView>
                               <GridPane prefHeight="30.0" prefWidth="301.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">

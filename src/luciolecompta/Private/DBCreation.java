@@ -60,7 +60,8 @@ public class DBCreation {
                     + "typePaiement     TEXT DEFAULT 'liquide'," //type de paiement (liquide, facture, carte) defaut liquide
                     + "dureePaiement    TEXT DEFAULT 'en avance'," //durée du paiement (à la prise du matériel, 30 jours, 10 jours, au retour) defaut paiement d'avance
                     + "dureeLocation    TEXT,"
-                    + "commentaire      TEXT)";
+                    + "commentaire      TEXT,"
+                    + "prixTotal        INT)"; //prix total des articles liés a la facture
             stmt.executeUpdate(sql);
             System.out.println("Table FACTURE crée avec succès.");
 

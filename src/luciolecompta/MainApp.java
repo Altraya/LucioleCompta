@@ -24,6 +24,7 @@ import javafx.collections.ObservableList;
 import javafx.stage.Modality;
 import luciolecompta.Models.Client;
 import luciolecompta.Models.ClientManager;
+import luciolecompta.Models.FactureManager;
 
 /**
  * Controler principal
@@ -98,7 +99,7 @@ public class MainApp extends Application {
 
             //Manager to get client data
             ClientManager clientManager = new ClientManager();
-
+            
             controller.setMainApp(this, clientManager);
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);

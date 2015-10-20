@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -36,6 +38,11 @@ public class FactureManager {
         }  
     }
     
+    /**
+     * Allow you to get all bill for one client specified in entry
+     * @param client : The client whose we want the bill
+     * @return an observablelist of facture
+     */
     public ObservableList<Facture> getClientFactures(Client client){
         Statement stmt = null;
         ObservableList<Facture> bill = FXCollections.observableArrayList();
@@ -44,11 +51,14 @@ public class FactureManager {
             stmt = db.createStatement();
             
             System.out.println("Selection des factures du client n°"+client.getId()+" en base de données.");
-            ResultSet rs = stmt.executeQuery("SELECT id, nom, dateDevis, type, total, dateExecution, datePaiement FROM FACTURE");
+            ResultSet rs = stmt.executeQuery("SELECT id, sujet, dateDevis, type, prixTotal, dateExecution, datePaiement FROM FACTURE");
             while (rs.next()) {
-                Facture fac = new Facture(rs.getInt("id"), rs.getString("nom"), rs.getString("date"), rs.getString("adresse1"), rs.getString("adresse2"), rs.getString("ville"), rs.getString("NPA"), rs.getString("telephone1"), rs.getString("telephone2"), rs.getString("email"), rs.getString("entreprise"), rs.getString("commentaire"));
+                Date tmpDateDevis = new Date(rs.getString("dateDevis"));
+                System.out.println("String : "+rs.getString("dateDevis"));
+                System.out.println("Rs : "+rs.getDate("dateDevis")+"\n");
+                /*Facture fac = new Facture(rs.getInt("id"), rs.getString("sujet"), rs.getDate("dateDevis"), rs.getString("type"), rs.getInt("total"), rs.getDate("dateExecution"), rs.getDate("datePaiement"));
                 //System.out.println("Dans getClientdata de clientManager | id =" + rs.getInt("id")+ " nom = " + rs.getString("nom") + " Entreprise " +rs.getString("entreprise")+ " Adresse 1 " + rs.getString("adresse1") + "\n");
-                bill.add(fac);
+                bill.add(fac);*/
             }
             System.out.println("Ok.");
             stmt.close();
