@@ -268,4 +268,11 @@ public class ClientControllerPage {
             alert.showAndWait();
         }
     }
+    
+    /**
+     * Called when the user click on the "Revenir au menu" button
+     */
+    public void handleReturnToMenu(){
+        this.mainApp.showAccueil();
+    }
 }
