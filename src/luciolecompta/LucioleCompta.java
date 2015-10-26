@@ -15,26 +15,27 @@ import luciolecompta.Private.DBCreation;
 public class LucioleCompta {
 
     /**
-     * @TODO : A faire : Finir de faire la classe facture et finir la partie facture des clients 
-     * Plus tard : Pas oublier de faire une syncro sans avoir besoin de valider l'édition => timer
-     * Au final > un controller = une page
+     * 
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Connection c = null;
         try {
-            Class.forName("org.sqlite.JDBC");
+            /*Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:luciolecompta.db");
             //Creation de la DB
             DBCreation creationManager = new DBCreation();
             //creationManager.createTables(c);
             //Drop des tables
+            System.out.println("DROP");
             creationManager.dropTables(c);
+            System.out.println("CREATE");
             creationManager.createTables(c);
+            System.out.println("POPULATE");
             creationManager.populate(c);
             creationManager.populateFacture(c);
             //creationManager.showTableSQL(c, "CLIENT");
-            c.close();
+            c.close();*/
             
             //affichage de la page d'accueil
             MainApp mainPage = new MainApp();

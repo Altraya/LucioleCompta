@@ -61,7 +61,8 @@ public class DBCreation {
                     + "dureePaiement    TEXT DEFAULT 'en avance'," //durée du paiement (à la prise du matériel, 30 jours, 10 jours, au retour) defaut paiement d'avance
                     + "dureeLocation    TEXT,"
                     + "commentaire      TEXT,"
-                    + "prixTotal        INT)"; //prix total des articles liés a la facture
+                    + "prixTotal        INT," //prix total des articles liés a la facture
+                    + "idClient         INT)"; //id du client lié a cette facture
             stmt.executeUpdate(sql);
             System.out.println("Table FACTURE crée avec succès.");
 
@@ -151,9 +152,11 @@ public class DBCreation {
             Class.forName("org.sqlite.JDBC");
             stmt = c.createStatement();
             String sql = "INSERT INTO FACTURE(id, type, dateDevis, paye, confirme, sujet, dateExecution, "
-                    + "datePaiement, rabaisTotal, typeDevis, TVA, typePaiement, dureePaiement, dureeLocation, commentaire)"
-                    + "VALUES(null, 'facture', '2015-01-22', 0, 0, 'Concert sur montagne', '2015-12-31', '0000-00-00', 0, 'location', 8, 'liquide', 'en avance', '2 jours', 'ceci est un commentaire'),"
-                    + "(null, 'facture', '2012-10-02', 0, 0, 'Concert quelque part', '2015-12-22', '2014-12-10', 0, 'location', 8, 'liquide', 'en avance', '15 jours', 'ceci est un commentaire')";
+                    + "datePaiement, rabaisTotal, typeDevis, TVA, typePaiement, dureePaiement, dureeLocation, commentaire, idClient)"
+                    + "VALUES(null, 'facture', '2015-01-22', 0, 0, 'Concert sur montagne', '2015-12-31', '0000-00-00', 0, 'location', 8, 'liquide', 'en avance', '2 jours', 'ceci est un commentaire', 3),"
+                    + "(null, 'facture', '2012-10-02', 0, 0, 'Concert quelque part', '2015-12-22', '2014-12-10', 0, 'location', 8, 'liquide', 'en avance', '15 jours', 'ceci est un commentaire', 4),"
+                    + "(null, 'facture', '2012-10-02', 0, 0, 'Concert quelque part2', '2015-12-22', '2014-12-10', 0, 'location', 8, 'liquide', 'en avance', '15 jours', 'ceci est un commentaire', 4)";
+
             stmt.executeUpdate(sql);
             System.out.println("INSERT de Facture réussi !");
             stmt.close();

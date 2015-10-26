@@ -116,6 +116,14 @@ public class ClientControllerPage {
         prenomClientColumn.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
         entrepriseClientColumn.setCellValueFactory(cellData -> cellData.getValue().entrepriseProperty());
 
+        idFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+        nomFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().getSujet());
+        dateDevisFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().dateDevisProperty());
+        typeFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
+        totalFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().getPrixTotal().asString());
+        dateExecutionFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().getDateExecution());
+        datePaiementFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().getDatePaiement());
+        
         // Clear person details.
         showClientsDetails(null);
 
@@ -132,10 +140,11 @@ public class ClientControllerPage {
      * @param client : the owner of the facture 
      */
     public void showClientFacture(Client client){
+        System.out.println("Dans show client facture ");
         //Manager to get bill data on client page
         FactureManager factureManager = new FactureManager();
-        
         factureInfosClients.setItems(factureManager.getClientFactures(client));
+        System.out.println("Set item des factures effectué");
     }
 
     /**
