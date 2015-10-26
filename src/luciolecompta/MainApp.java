@@ -43,8 +43,8 @@ public class MainApp extends Application {
         this.getPrimaryStage().setTitle("Luciole Compta");
 
         initRootLayout();
-        //showAccueil();
-        showClient();
+        showAccueil();
+        //showClient();
     }
 
     /**
