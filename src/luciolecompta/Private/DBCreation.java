@@ -69,7 +69,7 @@ public class DBCreation {
             sql = "CREATE TABLE IF NOT EXISTS CATEGORIE"
                     + "(id          INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                     + "nom          TEXT NOT NULL,"
-                    + "type         TEXT NOT NULL)";  //Type de catégorie (Article, Honoraires, Frais)
+                    + "type         TEXT NOT NULL)";  //Type de catégorie (Article, Honoraires, Frais, Accessoire)
             stmt.executeUpdate(sql);
             System.out.println("Table CATEGORIE crée avec succès.");
 
@@ -78,10 +78,12 @@ public class DBCreation {
                     + "rendu        INTEGER DEFAULT 0," //si l'article rattaché a été rendu ou non par defaut a false (0)
                     + "idArticle    INTEGER NOT NULL,"
                     + "idClient     INTEGER NOT NULL,"
-                    + "idFacture    INTEGER NOT NULL)";
+                    + "idFacture    INTEGER NOT NULL,"
+                    + "rabaisSurLarticle INTEGER NOT NULL,"
+                    + "prixOverride INTEGER NOT NULL)";
             stmt.executeUpdate(sql);
             System.out.println("Table ARTICLES_PAR_CLIENT_PAR_FACTURE crée avec succès.");
-
+           
             stmt.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
