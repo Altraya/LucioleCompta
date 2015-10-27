@@ -98,7 +98,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <TableView fx:id="factureInfosClients" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView id="factureInfosClients" fx:id="factureInfosClients" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="idFactureClientColumn" prefWidth="75.0" text="ID" />
                                   <TableColumn fx:id="nomFactureClientColumn" prefWidth="75.0" text="Nom" />
@@ -109,8 +109,11 @@
                                     <TableColumn fx:id="datePaiementFactureClientColumn" prefWidth="124.0" text="Date de paiement" />
                                 </columns>
                               </TableView>
-                              <GridPane prefHeight="30.0" prefWidth="301.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <GridPane prefHeight="30.0" prefWidth="696.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -119,9 +122,10 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#handleNewClient" prefHeight="30.0" prefWidth="201.0" text="Nouveau" />
-                                    <Button mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="30.0" prefWidth="185.0" text="Suppression" GridPane.columnIndex="2" />
-                                    <Button mnemonicParsing="false" onAction="#handleUpdateClient" prefHeight="30.0" prefWidth="132.0" text="Valider l'édition" GridPane.columnIndex="1" />
+                                    <Button mnemonicParsing="false" onAction="#handleNewClient" prefHeight="30.0" prefWidth="201.0" text="Nouveau" GridPane.columnIndex="3" />
+                                    <Button mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="30.0" prefWidth="185.0" text="Suppression" GridPane.columnIndex="5" />
+                                    <Button mnemonicParsing="false" onAction="#handleUpdateClient" prefHeight="30.0" prefWidth="179.0" text="Valider l'édition" GridPane.columnIndex="4" />
+                                    <Button mnemonicParsing="false" onAction="#handleReturnToMenu" prefHeight="30.0" prefWidth="283.0" text="Revenir au menu" />
                                  </children>
                               </GridPane>
                            </children>
