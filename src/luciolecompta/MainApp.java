@@ -25,7 +25,6 @@ import javafx.stage.Modality;
 import luciolecompta.Models.Client;
 import luciolecompta.Models.ClientManager;
 import luciolecompta.Models.FactureManager;
-import luciolecompta.Views.AccueilController;
 
 /**
  * Controler principal
@@ -44,8 +43,8 @@ public class MainApp extends Application {
         this.getPrimaryStage().setTitle("Luciole Compta");
 
         initRootLayout();
-        showAccueil();
-        //showClient();
+        //showAccueil();
+        showClient();
     }
 
     /**
@@ -71,40 +70,16 @@ public class MainApp extends Application {
      * Contenu de la fenetre a l'interieur du root layout -> Accueil
      */
     public void showAccueil() {
-        /*try {
-            System.out.println("Show Accueil ? ");
+        try {
             // Load l'interieur de la fenetre
-            FXMLLoader loader1 = new FXMLLoader();
-            System.out.println("- Après FXML Loader -");
-            loader1.setLocation(MainApp.class.getResource("Views/Accueil.fxml"));
-            System.out.println("- Après le set location du loader -");
-            /*
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("Views/Accueil.fxml"));
             AnchorPane accueilOverview = (AnchorPane) loader.load();
-        
+
             // Set person overview into the center of root layout.
             getRootLayout().setCenter(accueilOverview);
-            System.out.println("- Avant le load du controller -");
-            // Give the controller access to the main app.
-            AccueilController aController = loader1.getController();
-            System.out.println("- Loader du controller -");
-            aController.setMainApp(this);
-            System.out.println("- Set main app fait ! -");
-        /*} catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        }*/
-        // Load l'interieur de la fenetre
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MainApp.class.getResource("Views/Accueil.fxml"));
-        try {
-            AnchorPane accueilOverview = (AnchorPane) loader.load();
-            rootLayout.setCenter(accueilOverview);
-
-            // Give the controller access to the main app.
-            AccueilController controller = loader.getController();
-            
-            controller.setMainApp(this);
-        } catch (IOException ex) {
-            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

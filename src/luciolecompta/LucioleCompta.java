@@ -15,7 +15,9 @@ import luciolecompta.Private.DBCreation;
 public class LucioleCompta {
 
     /**
-     * 
+     * @TODO : A faire : Finir de faire la classe facture et finir la partie facture des clients 
+     * Plus tard : Pas oublier de faire une syncro sans avoir besoin de valider l'édition => timer
+     * Au final > un controller = une page
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -27,11 +29,8 @@ public class LucioleCompta {
             DBCreation creationManager = new DBCreation();
             //creationManager.createTables(c);
             //Drop des tables
-            System.out.println("DROP");
             creationManager.dropTables(c);
-            System.out.println("CREATE");
             creationManager.createTables(c);
-            System.out.println("POPULATE");
             creationManager.populate(c);
             creationManager.populateFacture(c);
             //creationManager.showTableSQL(c, "CLIENT");
