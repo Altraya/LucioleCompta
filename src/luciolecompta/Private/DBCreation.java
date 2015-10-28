@@ -73,16 +73,16 @@ public class DBCreation {
             stmt.executeUpdate(sql);
             System.out.println("Table CATEGORIE crée avec succès.");
 
-            sql = "CREATE TABLE IF NOT EXISTS ARTICLES_PAR_CLIENT_PAR_FACTURE"
+            //l'id du client est obtenu directement dans la facture
+            sql = "CREATE TABLE IF NOT EXISTS ARTICLES_PAR_FACTURE"
                     + "(id          INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                     + "rendu        INTEGER DEFAULT 0," //si l'article rattaché a été rendu ou non par defaut a false (0)
                     + "idArticle    INTEGER NOT NULL,"
-                    + "idClient     INTEGER NOT NULL,"
                     + "idFacture    INTEGER NOT NULL,"
                     + "rabaisSurLarticle INTEGER NOT NULL,"
                     + "prixOverride INTEGER NOT NULL)";
             stmt.executeUpdate(sql);
-            System.out.println("Table ARTICLES_PAR_CLIENT_PAR_FACTURE crée avec succès.");
+            System.out.println("Table ARTICLES_PAR_FACTURE crée avec succès.");
            
             stmt.close();
         } catch (Exception e) {
