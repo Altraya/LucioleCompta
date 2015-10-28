@@ -48,4 +48,20 @@ public class AccueilController {
     private void handleShowClient() {        
         mainApp.showClient();
     }
+    
+    /**
+     * Called when the user clicks the new button. Open dialog to show articles
+     */
+    @FXML
+    private void handleShowArticle() {        
+        mainApp.showArticle();
+    }
+    
+    /**
+    * Called when the user clicks the new button. Open dialog to show facture
+    */
+    @FXML
+    private void handleShowFacture() {        
+        mainApp.showFacture();
+    }
 }

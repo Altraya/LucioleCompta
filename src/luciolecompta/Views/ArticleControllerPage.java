@@ -8,6 +8,7 @@ package luciolecompta.Views;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import luciolecompta.MainApp;
 
 /**
  * FXML Controller class
@@ -15,6 +16,9 @@ import javafx.fxml.Initializable;
  * @author Karakayn
  */
 public class ArticleControllerPage implements Initializable {
+    
+    // Reference to the main application.
+    private MainApp mainApp;
 
     /**
      * Initializes the controller class.
@@ -24,4 +28,13 @@ public class ArticleControllerPage implements Initializable {
         // TODO
     }    
     
+    /**
+     * Is called by the main application to give a reference back to itself.
+     *
+     * @param mainApp
+    */
+    public void setMainApp(MainApp mainApp) {
+        System.out.println("Set main app");
+        this.mainApp = mainApp;
+    }
 }

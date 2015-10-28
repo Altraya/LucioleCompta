@@ -13,8 +13,8 @@
     </stylesheets>
    <children>
       <Button layoutX="3.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleShowClient" prefHeight="42.0" prefWidth="594.0" text="Client" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" />
-      <Button layoutX="3.0" layoutY="158.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="594.0" text="Article" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" />
-      <Button layoutX="3.0" layoutY="238.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="594.0" text="Facture" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" />
+      <Button layoutX="3.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleShowArticle" prefHeight="42.0" prefWidth="594.0" text="Article" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" />
+      <Button layoutX="3.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleShowFacture" prefHeight="42.0" prefWidth="594.0" text="Facture" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" />
       <Label layoutY="6.0" text="Choisissez un menu pour continuer :" />
    </children>
 </AnchorPane>
