@@ -26,31 +26,31 @@ public class Facture {
     //date du devis
     private final ObjectProperty<LocalDate> dateDevis;
     //Flag pour savoir si ca a été payé ou non => false defaut
-    private IntegerProperty paye;
+    private final IntegerProperty paye;
     //Flag pour savoir si ca a été confirme ou non => false defaut
-    private IntegerProperty confirme;
+    private final IntegerProperty confirme;
     //Sujet de la facture : Defaut a null
-    private StringProperty sujet;
+    private final StringProperty sujet;
     //date de l'execution du contrat / null
-    private ObjectProperty<LocalDate> dateExecution;
+    private final ObjectProperty<LocalDate> dateExecution;
     //date du paiement /null
-    private ObjectProperty<LocalDate> datePaiement;
+    private final ObjectProperty<LocalDate> datePaiement;
     //pourcentage de rabais au total defaut 0
-    private IntegerProperty rabaisTotal;
+    private final IntegerProperty rabaisTotal;
     //type de devis (location, prestation ou vente) 
-    private StringProperty typeDevis;
+    private final StringProperty typeDevis;
     //TVA : 8% par defaut
-    private IntegerProperty TVA;
+    private final IntegerProperty TVA;
     //type de paiement (liquide, facture, carte) defaut liquide
-    private StringProperty typePaiement;
+    private final StringProperty typePaiement;
     //durée du paiement (à la prise du matériel, 30 jours, 10 jours, au retour) defaut paiement d'avance
-    private StringProperty dureePaiement;
+    private final StringProperty dureePaiement;
     //durée de la location
-    private StringProperty dureeLocation;
+    private final StringProperty dureeLocation;
     //commentaire potentiel / null
     private final StringProperty commentaire;
     //prix total des articles raccordés a la facture /null si pas encore renseigné
-    private IntegerProperty prixTotal;
+    private final IntegerProperty prixTotal;
     
     public Facture(int id, String type, Date dateDevis, int paye, int confirme, 
             String sujet, Date dateExecution, Date datePaiement, int rabaisTotal, String typeDevis, 
@@ -124,89 +124,117 @@ public class Facture {
     public String getType() {
         return type.get();
     }
+    
+    public StringProperty typeProperty(){
+        return type;
+    }
 
     /**
      * @return the paye
      */
-    public IntegerProperty getPaye() {
+    public IntegerProperty payeProperty() {
         return paye;
+    }
+    
+    public int getPaye(){
+        return paye.get();
     }
 
     /**
      * @param paye the paye to set
      */
-    public void setPaye(IntegerProperty paye) {
-        this.paye = paye;
+    public void setPaye(int paye) {
+        this.paye.set(paye);
     }
 
     /**
      * @return the confirme
      */
-    public IntegerProperty getConfirme() {
+    public IntegerProperty confirmeProperty() {
         return confirme;
+    }
+    
+    public int getConfirme(){
+        return confirme.get();
     }
 
     /**
      * @param confirme the confirme to set
      */
-    public void setConfirme(IntegerProperty confirme) {
-        this.confirme = confirme;
+    public void setConfirme(int confirme) {
+        this.confirme.set(confirme);
     }
 
     /**
      * @return the sujet
      */
-    public StringProperty getSujet() {
+    public StringProperty sujetProperty() {
         return sujet;
+    }
+    
+    public String getSujet(){
+        return sujet.get();
     }
 
     /**
      * @param sujet the sujet to set
      */
-    public void setSujet(StringProperty sujet) {
-        this.sujet = sujet;
+    public void setSujet(String sujet) {
+        this.sujet.set(sujet);
     }
 
     /**
      * @return the dateExecution
      */
-    public ObjectProperty<LocalDate> getDateExecution() {
+    public ObjectProperty<LocalDate> dateExecutionProperty() {
         return dateExecution;
+    }
+    
+    public LocalDate getDateExecution(){
+        return dateExecution.get();
     }
 
     /**
      * @param dateExecution the dateExecution to set
      */
-    public void setDateExecution(ObjectProperty<LocalDate> dateExecution) {
-        this.dateExecution = dateExecution;
+    public void setDateExecution(LocalDate dateExecution) {
+        this.dateExecution.set(dateExecution);
     }
 
     /**
      * @return the datePaiement
      */
-    public ObjectProperty<LocalDate> getDatePaiement() {
+    public ObjectProperty<LocalDate> datePaiementProperty() {
         return datePaiement;
+    }
+    
+    public LocalDate getDatePaiement(){
+        return datePaiement.get();
     }
 
     /**
      * @param datePaiement the datePaiement to set
      */
-    public void setDatePaiement(ObjectProperty<LocalDate> datePaiement) {
-        this.datePaiement = datePaiement;
+    public void setDatePaiement(LocalDate datePaiement) {
+        this.datePaiement.set(datePaiement);
     }
 
     /**
      * @return the rabaisTotal
      */
-    public IntegerProperty getRabaisTotal() {
+    public IntegerProperty rabaisTotalProperty() {
         return rabaisTotal;
+    }
+    
+    public int getRabaisTotal(){
+        return rabaisTotal.get();
     }
 
     /**
      * @param rabaisTotal the rabaisTotal to set
      */
-    public void setRabaisTotal(IntegerProperty rabaisTotal) {
-        this.rabaisTotal = rabaisTotal;
+    public void setRabaisTotal(int rabaisTotal) {
+        this.rabaisTotal.set(rabaisTotal);
     }
 
     /**
@@ -219,89 +247,98 @@ public class Facture {
     /**
      * @param typeDevis the typeDevis to set
      */
-    public void setTypeDevis(StringProperty typeDevis) {
-        this.typeDevis = typeDevis;
+    public void setTypeDevis(String typeDevis) {
+        this.typeDevis.set(typeDevis);
     }
 
     /**
      * @return the TVA
      */
-    public IntegerProperty getTVA() {
+    public IntegerProperty TVAProperty() {
         return TVA;
+    }
+    
+    public int getTVA(){
+        return TVA.get();
     }
 
     /**
      * @param TVA the TVA to set
      */
-    public void setTVA(IntegerProperty TVA) {
-        this.TVA = TVA;
+    public void setTVA(int TVA) {
+        this.TVA.set(TVA);
     }
 
     /**
      * @return the typePaiement
      */
-    public StringProperty getTypePaiement() {
+    public StringProperty typePaiementProperty() {
         return typePaiement;
+    }
+    
+    public String getTypePaiement(){
+        return typePaiement.get();
     }
 
     /**
      * @param typePaiement the typePaiement to set
      */
-    public void setTypePaiement(StringProperty typePaiement) {
-        this.typePaiement = typePaiement;
+    public void setTypePaiement(String typePaiement) {
+        this.typePaiement.set(typePaiement);
     }
 
     /**
      * @return the dureePaiement
      */
-    public StringProperty getDureePaiement() {
+    public StringProperty dureePaiementProperty() {
         return dureePaiement;
+    }
+    
+    public String getDureePaiement(){
+        return dureePaiement.get();
     }
 
     /**
      * @param dureePaiement the dureePaiement to set
      */
-    public void setDureePaiement(StringProperty dureePaiement) {
-        this.dureePaiement = dureePaiement;
+    public void setDureePaiement(String dureePaiement) {
+        this.dureePaiement.set(dureePaiement);
     }
 
     /**
      * @return the dureeLocation
      */
-    public StringProperty getDureeLocation() {
+    public StringProperty dureeLocationProperty() {
         return dureeLocation;
+    }
+    
+    public String getDureeLocation(){
+        return dureeLocation.get();
     }
 
     /**
      * @param dureeLocation the dureeLocation to set
      */
-    public void setDureeLocation(StringProperty dureeLocation) {
-        this.dureeLocation = dureeLocation;
+    public void setDureeLocation(String dureeLocation) {
+        this.dureeLocation.set(dureeLocation);
     }
 
     /**
      * @return the prixTotal
      */
-    public IntegerProperty getPrixTotal() {
+    public IntegerProperty prixTotalProperty() {
         return prixTotal;
+    }
+    
+    public int getPrixTotal(){
+        return prixTotal.get();
     }
 
     /**
      * @param prixTotal the prixTotal to set
      */
-    public void setPrixTotal(IntegerProperty prixTotal) {
-        this.prixTotal = prixTotal;
-    }
-
-    public StringProperty typeProperty(){
-        return type;
-    }
-    
-    /**
-     * @param type the type to set
-     */
-    public void setType(String type) {
-        this.type.set(type);
+    public void setPrixTotal(int prixTotal) {
+        this.prixTotal.set(prixTotal);
     }
 
     /**

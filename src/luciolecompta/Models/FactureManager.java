@@ -81,7 +81,6 @@ public class FactureManager {
                     System.out.println("datePaiement : "+rs.getObject("datePaiement"));
 
                     Facture fac = new Facture(rs.getInt("id"), rs.getString("sujet"), dateDevis, type, prixTotal, dateExecution, datePaiement);
-                    //System.out.println("Dans getClientdata de clientManager | id =" + rs.getInt("id")+ " nom = " + rs.getString("nom") + " Entreprise " +rs.getString("entreprise")+ " Adresse 1 " + rs.getString("adresse1") + "\n");
                     System.out.println("Objet facture crée");
                     bill.add(fac);
                     System.out.println("Objet facture ajouté à la liste");
@@ -94,9 +93,9 @@ public class FactureManager {
                 System.exit(0);
             }
         }
-        for(int i = 0; i<bill.size(); i++){
+        /*for(int i = 0; i<bill.size(); i++){
             System.out.println(bill.get(i).toString());
-        }
+        }*/
         return bill;
     }
 }

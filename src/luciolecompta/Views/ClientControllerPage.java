@@ -117,12 +117,12 @@ public class ClientControllerPage {
         entrepriseClientColumn.setCellValueFactory(cellData -> cellData.getValue().entrepriseProperty());
 
         idFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
-        nomFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().getSujet());
+        nomFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().sujetProperty());
         dateDevisFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().dateDevisProperty());
         typeFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
-        totalFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().getPrixTotal().asString());
-        dateExecutionFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().getDateExecution());
-        datePaiementFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().getDatePaiement());
+        totalFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().prixTotalProperty().asString());
+        dateExecutionFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().dateExecutionProperty());
+        datePaiementFactureClientColumn.setCellValueFactory(cellData -> cellData.getValue().datePaiementProperty());
         
         // Clear person details.
         showClientsDetails(null);
