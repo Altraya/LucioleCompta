@@ -24,6 +24,13 @@ public class Article {
     private final IntegerProperty maxEnStock;
     private final StringProperty categorie;
     
+    public Article(int id){
+        this.id = new SimpleIntegerProperty(id);
+        this.nom = new SimpleStringProperty("");
+        this.prix = new SimpleFloatProperty(0);
+        this.maxEnStock = new SimpleIntegerProperty(0);
+        this.categorie = new SimpleStringProperty("");
+    }
     public Article(int id, String nom, float prix, int maxEnStock, String categorie){
         this.id = new SimpleIntegerProperty(id);
         this.nom = new SimpleStringProperty(nom);

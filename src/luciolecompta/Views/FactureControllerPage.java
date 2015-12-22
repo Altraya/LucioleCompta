@@ -37,4 +37,11 @@ public class FactureControllerPage implements Initializable {
         System.out.println("Set main app");
         this.mainApp = mainApp;
     }
+    
+    /**
+     * Called when the user click on the "Revenir au menu" button
+     */
+    public void handleReturnToMenu(){
+        this.mainApp.showAccueil();
+    }
 }

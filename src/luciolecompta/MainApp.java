@@ -22,10 +22,12 @@ import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.Modality;
+import luciolecompta.Models.ArticleManager;
 import luciolecompta.Models.Client;
 import luciolecompta.Models.ClientManager;
 import luciolecompta.Models.FactureManager;
 import luciolecompta.Views.AccueilController;
+import luciolecompta.Views.AddArticleController;
 import luciolecompta.Views.ArticleControllerPage;
 import luciolecompta.Views.FactureControllerPage;
 
@@ -102,8 +104,8 @@ public class MainApp extends Application {
 
             // Give the controller access to the main app.
             ArticleControllerPage controller = loader.getController();
-            
-            controller.setMainApp(this);
+            ArticleManager articleManager = new ArticleManager();
+            controller.setMainApp(this, articleManager);
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -173,6 +175,42 @@ public class MainApp extends Application {
 
             // Set the person into the controller.
             AddClientController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            System.out.println("Load du controler");
+            
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+            return controller.isOkClicked();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+        /**
+     * Opens a dialog to edit details for the specified article. If the user
+     * clicks OK, the changes are saved into the provided person object and true
+     * is returned.
+     * @return true if the user clicked OK, false otherwise.
+     */
+    public boolean showNewArticle() {
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("Views/AddArticle.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Nouveau article");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the article into the controller.
+            AddArticleController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             System.out.println("Load du controler");
             

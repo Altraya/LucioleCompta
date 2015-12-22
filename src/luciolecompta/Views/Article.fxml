@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="luciolecompta.Views.ArticleControllerPage">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="luciolecompta.Views.ArticleControllerPage">
    <children>
       <GridPane layoutX="115.0" layoutY="229.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -99,9 +99,9 @@
                     </rowConstraints>
                      <children>
                         <Button mnemonicParsing="false" prefHeight="12.0" prefWidth="119.0" text="Revenir au menu" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Valider l'édition" GridPane.columnIndex="3" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Suppression" GridPane.columnIndex="4" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="198.0" text="Nouvel article" GridPane.columnIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#handleUpdateArticle" prefHeight="25.0" prefWidth="200.0" text="Valider l'édition" GridPane.columnIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#handleDeleteArticle" prefHeight="25.0" prefWidth="140.0" text="Suppression" GridPane.columnIndex="4" />
+                        <Button mnemonicParsing="false" onAction="#handleNewArticle" prefHeight="25.0" prefWidth="198.0" text="Nouvel article" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane>

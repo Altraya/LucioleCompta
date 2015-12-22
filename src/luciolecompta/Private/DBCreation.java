@@ -40,7 +40,7 @@ public class DBCreation {
                     + "(id              INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                     + "nom              VARCHAR(50),"
                     + "prix             INTEGER,"
-                    + "maxEnStock       INTEGER"
+                    + "maxEnStock       INTEGER,"
                     + "idCategorie      INT NOT NULL)";
             stmt.executeUpdate(sql);
             System.out.println("Table ARTICLE crée avec succès.");
